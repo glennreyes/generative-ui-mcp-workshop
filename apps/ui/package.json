@@ -1,0 +1,15 @@
+{
+  "name": "@workshop/ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "watch": "vite build --watch"
+  },
+  "dependencies": {
+    "@workshop/agenda": "*",
+    "cn": "0.3.0",
+    "radix-ui": "1.6.7"
+  }
+}

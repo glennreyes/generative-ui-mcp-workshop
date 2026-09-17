@@ -1,0 +1,10 @@
+{
+  "name": "@workshop/host",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "cross-env INPUT=index.html vite build && cross-env INPUT=sandbox.html vite build",
+    "serve": "tsx serve.ts"
+  }
+}

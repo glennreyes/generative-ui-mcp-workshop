@@ -1,0 +1,23 @@
+name: Workshop setup help
+description: Get help running the workshop locally
+title: "Setup: "
+body:
+  - type: input
+    id: system
+    attributes:
+      label: Operating system and Node/npm versions
+      placeholder: macOS, Node 24.21.0, npm 11.19.1
+    validations:
+      required: true
+  - type: input
+    id: checkpoint
+    attributes:
+      label: Checkpoint
+      placeholder: final or 00-start
+  - type: textarea
+    id: error
+    attributes:
+      label: Command, expected result and error
+      description: Include the first useful error. Do not paste keys, tokens or environment files.
+    validations:
+      required: true

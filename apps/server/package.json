@@ -1,0 +1,14 @@
+{
+  "name": "@workshop/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts",
+    "stdio": "tsx src/main.ts --stdio"
+  },
+  "dependencies": {
+    "@workshop/agenda": "*"
+  }
+}

@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--secondary);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --font-sans: var(--font-sans-host, ui-sans-serif, system-ui, sans-serif);
+}
+:root {
+  --background: oklch(0.995 0.003 95);
+  --foreground: oklch(0.23 0.022 260);
+  --primary: oklch(0.47 0.13 175);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.025 170);
+  --muted: oklch(0.965 0.006 100);
+  --muted-foreground: oklch(0.48 0.018 260);
+  --border: oklch(0.88 0.012 100);
+  --destructive: oklch(0.56 0.21 28);
+  color-scheme: light;
+}
+.dark {
+  --background: oklch(0.2 0.01 260);
+  --foreground: oklch(0.95 0.004 100);
+  --primary: oklch(0.76 0.13 165);
+  --primary-foreground: oklch(0.2 0.02 170);
+  --secondary: oklch(0.3 0.03 170);
+  --muted: oklch(0.25 0.01 260);
+  --muted-foreground: oklch(0.72 0.012 260);
+  --border: oklch(0.36 0.01 260);
+  --destructive: oklch(0.76 0.15 28);
+  color-scheme: dark;
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    margin: 0;
+  }
+  select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}

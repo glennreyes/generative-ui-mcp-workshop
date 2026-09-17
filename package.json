@@ -1,0 +1,73 @@
+{
+  "name": "generative-ui-mcp-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=24.21.0 <25",
+    "npm": ">=11"
+  },
+  "packageManager": "npm@11.19.1",
+  "scripts": {
+    "dev": "npm run build && concurrently --kill-others -n ui,server,host \"npm run watch -w @workshop/ui\" \"npm run dev -w @workshop/server\" \"npm run serve -w @workshop/host\"",
+    "start": "concurrently --kill-others -n server,host \"npm run start -w @workshop/server\" \"npm run serve -w @workshop/host\"",
+    "build": "npm run build -w @workshop/ui && npm run build -w @workshop/host",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p apps/host",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "tsx --test tests/*.test.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "doctor": "node scripts/doctor.mjs",
+    "smoke": "tsx scripts/smoke.ts",
+    "checkpoint": "node scripts/checkpoint.mjs",
+    "slides": "npm run dev -w @workshop/slides",
+    "slides:build": "npm run build -w @workshop/slides"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/core": "2.0.0",
+    "@modelcontextprotocol/express": "2.0.0",
+    "@modelcontextprotocol/ext-apps": "2.0.0",
+    "@modelcontextprotocol/node": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "class-variance-authority": "0.7.1",
+    "cn": "0.3.0",
+    "cors": "2.8.6",
+    "express": "5.2.1",
+    "lucide-react": "1.46.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@marp-team/marp-core": "4.4.0",
+    "@shadcn/lint": "0.1.0",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/cors": "2.8.19",
+    "@types/express": "5.0.6",
+    "@types/node": "24.13.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "concurrently": "10.0.5",
+    "cross-env": "10.1.0",
+    "eslint": "10.10.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.12.0",
+    "prettier": "3.9.6",
+    "shadcn": "4.21.0",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.13",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.0",
+    "vite": "8.3.0",
+    "vite-plugin-singlefile": "2.3.3"
+  }
+}
