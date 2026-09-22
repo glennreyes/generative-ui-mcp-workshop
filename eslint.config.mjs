@@ -20,7 +20,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   { languageOptions: { globals: { ...globals.node, ...globals.browser } } },
   {
-    files: ["apps/ui/src/**/*.{ts,tsx}"],
+    files: ["apps/ui/src/**/*.{ts,tsx}", "apps/slides/src/**/*.{ts,tsx}"],
     plugins: { "react-hooks": hooks, shadcn },
     settings: {
       shadcn: {

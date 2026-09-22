@@ -1,6 +1,6 @@
 # Workshop development guide
 
-This repository teaches Building Generative UI with MCP in React. Keep the core path runnable with Node 24.21.0 and npm, without API keys or external services.
+This repository teaches Building Generative UI with MCP in React. Keep the core path runnable with Node 24.21.0 and Bun 1.4.2, without API keys or external services.
 
 - Read the relevant page in `docs/exercises/` before changing an exercise.
 - Keep fictional data clearly labeled. It is not the React Alicante schedule.
@@ -10,7 +10,7 @@ This repository teaches Building Generative UI with MCP in React. Keep the core 
 - Use existing shadcn component variants. `@shadcn/lint` is configured in `eslint.config.mjs`; fix errors without suppressing the rules.
 - Keep shared workshop copy duration-neutral. Date and 3.5-hour duration belong in the React Alicante event page and agenda.
 - Preserve the upstream attribution and licenses in `apps/host`.
-- Run `npm run check` after changes. For bridge/UI changes, run `npm run smoke` against the running server and verify the interaction inside the local host.
+- Run `bun run check` after changes. For bridge/UI changes, run `bun run smoke` against the running server and verify the interaction inside the local host.
 - Changes to teaching files must be reflected in the matching `checkpoints/` snapshots and exercise links.
-- Keep the exact dependency versions and package-lock.json in sync. Do not upgrade dependencies during the workshop.
+- Keep the exact dependency versions and bun.lock in sync. Do not upgrade dependencies during the workshop.
 - Keep public copy plain and free of em dashes.

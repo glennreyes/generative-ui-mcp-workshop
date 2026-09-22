@@ -18,15 +18,15 @@ The model interprets intent and chooses validated tool arguments. React renders 
 
 ## Quick start
 
-Use **Node 24.21.0** and **npm 11.19.1**. Install dependencies before travelling.
+Use **Node 24.21.0** and **Bun 1.4.2**. Install dependencies before travelling.
 
 ```sh
 git clone https://github.com/glennreyes/generative-ui-mcp-workshop.git
 cd generative-ui-mcp-workshop
-npm ci
-npm run doctor
-npm run check
-npm run dev
+bun install --frozen-lockfile
+bun run doctor
+bun run check
+bun run dev
 ```
 
 Open **[localhost:8080](http://localhost:8080/?tool=show_sessions&call=true)**. Select **React**, set **From** to **13:00**, and click **Update sessions**. Expect three afternoon sessions. Switch to **Compare** to see the same records as a table.
@@ -35,10 +35,10 @@ The finished demo is the default. Start learning from a separate copy:
 
 ```sh
 # Stop the demo first with Ctrl+C.
-npm run checkpoint -- 00-start ../agenda-start
+bun run checkpoint 00-start ../agenda-start
 cd ../agenda-start
-npm ci
-npm run dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
 Then follow [Exercise 1](docs/exercises/01-tool.md). The checkpoint command refuses an existing destination and preserves your original work. See [full setup](docs/setup.md) for expected results and recovery steps.
@@ -57,18 +57,20 @@ The [210-minute agenda](docs/events/react-alicante-2026.md) also includes the op
 
 ## Stack
 
-A small **npm workspaces** monorepo keeps the embedded app, server, test host and slides together.
+A small **Bun workspaces** monorepo keeps the embedded app, server, test host and slides together.
 
 | Part                 | Choice                                                                           |
 | -------------------- | -------------------------------------------------------------------------------- |
-| UI                   | React 19.3, TypeScript 6, Vite 8.3                                               |
+| UI                   | React 19.3, TypeScript 6, Vite+ 0.3.3                                            |
 | Components           | shadcn/ui, Tailwind CSS 4.3, Radix UI                                            |
 | Design-system checks | `@shadcn/lint` with ESLint 10                                                    |
 | MCP                  | Official TypeScript SDK 2.0 and MCP Apps 2.0                                     |
 | Transport            | Streamable HTTP and stdio; current protocol negotiation with compatibility tests |
 | Data                 | Zod 4 schemas and twelve local fictional sessions                                |
 | Local host           | Adapted, pinned official MCP Apps basic-host                                     |
-| Slides               | Editable Markdown, standalone HTML, PowerPoint and PDF                           |
+| Slides               | React + Motion, standalone HTML, print view and offline fallback                 |
+
+Bun 1.4.2 manages the workspaces. Vite+ 0.3.3 supplies the dev/build toolchain; ESLint and `@shadcn/lint` retain the component checks. Node 24.21.0 remains the server runtime.
 
 Dependencies are pinned in the manifests and lockfile. This is the compatible snapshot tested for the workshop, not a moving `latest` install. See [architecture and sources](docs/architecture.md).
 
@@ -90,18 +92,18 @@ tests/            Domain, HTTP compatibility and real AppBridge tests
 
 ## Commands
 
-| Command                                      | Purpose                                                |
-| -------------------------------------------- | ------------------------------------------------------ |
-| `npm run dev`                                | Build assets, watch the UI/server and start the host   |
-| `npm start`                                  | Run previously built assets without watchers           |
-| `npm run check`                              | Lint, type-check, test and build                       |
-| `npm run doctor`                             | Check Node, dependencies and free ports before startup |
-| `npm run smoke`                              | Check the running HTTP MCP server and UI resource      |
-| `npm run smoke -- --stdio`                   | Check the stdio path after building                    |
-| `npm run checkpoint -- <stage> <new-folder>` | Create a fresh checkpoint copy                         |
-| `npm run slides`                             | Serve the deck locally on port 3030                    |
-| `npm run slides:build`                       | Rebuild standalone HTML from Markdown                  |
-| `npm run format:check`                       | Check formatting                                       |
+| Command                                   | Purpose                                                |
+| ----------------------------------------- | ------------------------------------------------------ |
+| `bun run dev`                             | Build assets, watch the UI/server and start the host   |
+| `bun run start`                           | Run previously built assets without watchers           |
+| `bun run check`                           | Lint, type-check, test and build                       |
+| `bun run doctor`                          | Check Node, dependencies and free ports before startup |
+| `bun run smoke`                           | Check the running HTTP MCP server and UI resource      |
+| `bun run smoke --stdio`                   | Check the stdio path after building                    |
+| `bun run checkpoint <stage> <new-folder>` | Create a fresh checkpoint copy                         |
+| `bun run slides`                          | Serve the React deck locally on port 3030              |
+| `bun run slides:build`                    | Build the standalone React slide deck                  |
+| `bun run format:check`                    | Check formatting                                       |
 
 The host uses port **8080**, its separate sandbox **8081**, and the MCP server **3001**. After a UI rebuild, reload the host to load the new iframe document.
 
@@ -115,7 +117,7 @@ The host uses port **8080**, its separate sandbox **8081**, and the MCP server *
 - [Slides and offline exports](slides/README.md)
 - [Verification status](docs/verification.md)
 - [Build with Glenn on Discord](https://discord.gg/8p3uGHNMu), `#react-alicante-2026`
-- [Download the source](https://github.com/glennreyes/generative-ui-mcp-workshop/archive/refs/heads/main.zip) if Git is unavailable. Install npm dependencies before going offline.
+- [Download the source](https://github.com/glennreyes/generative-ui-mcp-workshop/archive/refs/heads/main.zip) if Git is unavailable. Install dependencies before going offline.
 
 The sample sessions are not the real conference schedule. For event logistics, use [reactalicante.es](https://reactalicante.es).
 

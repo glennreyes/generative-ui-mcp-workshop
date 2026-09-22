@@ -4,7 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node serve.mjs",
-    "build": "node build.mjs"
+    "dev": "vp dev --host 127.0.0.1 --port 3030 --strictPort",
+    "build": "vp build"
+  },
+  "dependencies": {
+    "motion": "13.4.0",
+    "@workshop/agenda": "*"
   }
 }

@@ -6,7 +6,7 @@ const stages = ["00-start", "01-tool", "02-react-ui", "03-views", "final"];
 const [stage, destination] = process.argv.slice(2);
 if (!stages.includes(stage) || !destination) {
   console.error(
-    "Usage: npm run checkpoint -- <00-start|01-tool|02-react-ui|03-views|final> ../agenda-start",
+    "Usage: bun run checkpoint <00-start|01-tool|02-react-ui|03-views|final> ../agenda-start",
   );
   process.exit(1);
 }
@@ -44,8 +44,8 @@ await cp(root, target, {
 await cp(path.join(root, "checkpoints", stage), target, { recursive: true });
 await writeFile(
   path.join(target, "CHECKPOINT.md"),
-  `# ${stage}\n\nCreated from the workshop snapshot. Your original project is unchanged.\n\nRun npm ci, then npm run dev. Follow docs/exercises/README.md.\n\nThe final-solution tests in npm test are acceptance targets and may fail until the matching exercise is complete.\n`,
+  `# ${stage}\n\nCreated from the workshop snapshot. Your original project is unchanged.\n\nRun bun install --frozen-lockfile, then bun run dev. Follow docs/exercises/README.md.\n\nThe final-solution tests in bun run test are acceptance targets and may fail until the matching exercise is complete.\n`,
 );
 console.log(
-  `Created ${stage} in ${target}\nNext: cd ${target} && npm ci && npm run dev`,
+  `Created ${stage} in ${target}\nNext: cd ${target} && bun install --frozen-lockfile && bun run dev`,
 );

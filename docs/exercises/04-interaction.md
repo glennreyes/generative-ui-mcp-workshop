@@ -35,7 +35,7 @@ Then use From 17:00 and Until 18:00. Expect the explicit empty state. Restore 13
 - [ ] Controls are disabled during the request and recover afterward.
 - [ ] Failures and invalid result shapes show a message, not a crash.
 - [ ] A follow-up includes visible session IDs and the applied filters.
-- [ ] npm run check passes in the finished project.
+- [ ] bun run check passes in the finished project.
 
 ## Optional agent prompt
 

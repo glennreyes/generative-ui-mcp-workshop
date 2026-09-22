@@ -21,10 +21,10 @@ AI tools are optional. Work alone, pair up or follow the shared build. An agent 
 Stop the running copy, then run from the original repository:
 
 ```sh
-npm run checkpoint -- 02-react-ui ../agenda-ui
+bun run checkpoint 02-react-ui ../agenda-ui
 cd ../agenda-ui
-npm ci
-npm run dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
 The host is at `http://localhost:8080`. Call `show_sessions` with the arguments in the exercise. Reload after the UI watcher finishes rebuilding.
@@ -33,6 +33,6 @@ The final code remains in the original project. The [snapshot directories](../..
 
 ## Checks during exercises
 
-`npm run lint`, `npm run typecheck` and `npm run build` should work at every checkpoint. `npm test` describes finished behavior: earlier checkpoints intentionally fail tests for work you have not implemented. By the final checkpoint, `npm run check` should pass in full.
+`bun run lint`, `bun run typecheck` and `bun run build` should work at every checkpoint. `bun run test` describes finished behavior: earlier checkpoints intentionally fail tests for work you have not implemented. By the final checkpoint, `bun run check` should pass in full.
 
 Use [troubleshooting](../troubleshooting.md) or [Discord](https://discord.gg/8p3uGHNMu) when stuck.

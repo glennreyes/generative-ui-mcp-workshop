@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cross-env INPUT=index.html vite build && cross-env INPUT=sandbox.html vite build",
+    "build": "cross-env INPUT=index.html vp build && cross-env INPUT=sandbox.html vp build",
     "serve": "tsx serve.ts"
   }
 }

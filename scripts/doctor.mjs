@@ -1,4 +1,5 @@
 import { readFile, access } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
 import { createServer } from "node:net";
 const manifest = JSON.parse(
   await readFile(new URL("../package.json", import.meta.url), "utf8"),
@@ -15,11 +16,17 @@ report(
   process.versions.node === expected,
   `Node ${process.versions.node}; workshop version ${expected}`,
 );
+const bun = spawnSync("bun", ["--version"], { encoding: "utf8" });
+const expectedBun = manifest.packageManager.split("@")[1];
+report(
+  bun.status === 0 && bun.stdout.trim() === expectedBun,
+  `Bun ${bun.stdout?.trim() || "not found"}; workshop version ${expectedBun}`,
+);
 try {
   await access(new URL("../node_modules/tsx", import.meta.url));
   report(true, "Dependencies installed");
 } catch {
-  report(false, "Run npm ci first");
+  report(false, "Run bun install --frozen-lockfile first");
 }
 for (const port of [3001, 8080, 8081]) {
   await new Promise((resolve) => {
@@ -40,6 +47,6 @@ for (const port of [3001, 8080, 8081]) {
   });
 }
 console.log(
-  `Next: ${Object.hasOwn(manifest.scripts, "check") ? "npm run check, then npm run dev" : "read README.md"}`,
+  `Next: ${Object.hasOwn(manifest.scripts, "check") ? "bun run check, then bun run dev" : "read README.md"}`,
 );
 process.exitCode = failures ? 1 : 0;

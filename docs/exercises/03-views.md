@@ -35,7 +35,7 @@ Expect a table containing the same three records as the list call. In the local 
 - [ ] Comparison columns have accessible headers.
 - [ ] Stable session IDs are used as keys.
 - [ ] Unknown views are rejected by the schema.
-- [ ] npm run lint passes without suppressing shadcn rules.
+- [ ] bun run lint passes without suppressing shadcn rules.
 
 ## Optional agent prompt
 

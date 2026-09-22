@@ -22,7 +22,7 @@ Hint 1: add the discriminator before the renderer. Hint 2: group by start time w
 
 ## Optional agent prompt
 
-> Read docs/exercises/05-challenge.md and implement the room-filter option. Before editing, list the schema, server and UI changes. Use existing components, preserve other filters, add one meaningful test and run npm run check. Explain the actual result afterward.
+> Read docs/exercises/05-challenge.md and implement the room-filter option. Before editing, list the schema, server and UI changes. Use existing components, preserve other filters, add one meaningful test and run bun run check. Explain the actual result afterward.
 
 ## Review
 

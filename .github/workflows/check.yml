@@ -12,10 +12,10 @@ jobs:
       - uses: actions/setup-node@v7.0.0
         with:
           node-version-file: .node-version
-          cache: npm
-      - run: npm install --global npm@11.19.1
-      - run: npm ci
-      - run: npm run check
-      - run: npm run format:check
-      - run: npm run smoke -- --stdio
-      - run: npm run slides:build
+      - uses: oven-sh/setup-bun@v2.2.0
+        with:
+          bun-version-file: .bun-version
+      - run: bun install --frozen-lockfile
+      - run: bun run check
+      - run: bun run format:check
+      - run: bun run smoke --stdio

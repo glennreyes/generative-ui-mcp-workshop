@@ -43,14 +43,14 @@ Use the [210-minute agenda](events/react-alicante-2026.md). At the start of each
 ## Recovery commands
 
 ```sh
-npm run doctor
-npm run check
-npm run dev
+bun run doctor
+bun run check
+bun run dev
 # In another terminal:
-npm run smoke
+bun run smoke
 ```
 
-Open a prepared solution in a new directory with `npm run checkpoint -- final ../agenda-final`. Stop the previous copy before starting it.
+Open a prepared solution in a new directory with `bun run checkpoint final ../agenda-final`. Stop the previous copy before starting it.
 
 Do not debug an agent-generated detour for more than a few minutes in front of the room. Explain the failing boundary, preserve the attendee’s folder and move to the next checkpoint.
 

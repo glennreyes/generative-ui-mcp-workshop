@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "watch": "vite build --watch"
+    "build": "vp build",
+    "watch": "vp build --watch"
   },
   "dependencies": {
     "@workshop/agenda": "*",

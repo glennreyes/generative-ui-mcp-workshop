@@ -36,7 +36,7 @@ The local test host replaces the first two steps with explicit tool selection an
 
 `content` is meaningful text usable without an interactive renderer. `structuredContent` is the validated view model available to the host/model and UI. Tool `_meta.ui.resourceUri` declares the UI resource. Resource `_meta.ui.csp` describes network/resource needs. These metadata purposes are different; UI-only metadata is not a substitute for the tool’s data contract or for authorization.
 
-The `ui://` URI identifies an MCP resource, not an HTTP webpage. `resources/read` returns one HTML document with all JavaScript and CSS inlined. Vite and `vite-plugin-singlefile` make that bundle; there is no Next.js runtime inside the iframe.
+The `ui://` URI identifies an MCP resource, not an HTTP webpage. `resources/read` returns one HTML document with all JavaScript and CSS inlined. Vite+ and `vite-plugin-singlefile` make that bundle; there is no Next.js runtime inside the iframe.
 
 ## Current MCP baseline
 
@@ -58,3 +58,13 @@ The official host uses an outer sandbox on a separate origin (`localhost:8081`) 
 - [MCP Apps v2 migration](https://apps.extensions.modelcontextprotocol.io/api/documents/migrate-to-v2.html)
 - [Pinned official host](https://github.com/modelcontextprotocol/ext-apps/tree/6d9bdc7babf275b759225aa722cbf5510c4c6021/examples/basic-host)
 - [shadcn lint](https://github.com/shadcn-ui/lint)
+
+## Tooling and presentation
+
+Bun 1.4.2 installs the exact dependency graph in `bun.lock` and runs workspace scripts. Vite+ 0.3.3 is project-local: `vp build` uses its pinned Vite/Rolldown toolchain. The Vite alias and Vitest override align plugin resolution with Vite+. The existing Node test runner, ESLint/shadcn checks and Prettier remain explicit scripts; `bun run check` is the full workshop check.
+
+The React/Motion deck in `apps/slides` shares the agenda fixtures and shadcn Button. Its interactive example is local presentation state, clearly labeled as making no MCP call. The actual MCP demo stays in the separate host. The deck bundles scripts and styles into one offline HTML file.
+
+- [Vite+ project-local setup](https://viteplus.dev/guide/local-cli)
+- [Bun installs](https://bun.sh/docs/pm/cli/install)
+- [Motion for React](https://motion.dev/docs/react)

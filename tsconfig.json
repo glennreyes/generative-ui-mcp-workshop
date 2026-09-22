@@ -24,6 +24,8 @@
     "apps/server/src",
     "packages",
     "tests",
-    "scripts/*.ts"
+    "scripts/*.ts",
+    "apps/slides/src",
+    "apps/slides/vite.config.ts"
   ]
 }

@@ -8,20 +8,20 @@ A laptop with permission to install developer tools, an editor, Git (or a downlo
 
 ## Install
 
-Use **Node.js 24.21.0** and **npm 11.19.1**. The repository pins Node in `.nvmrc`, `.node-version` and `mise.toml`; use whichever version manager you already have, or install Node from [nodejs.org](https://nodejs.org/).
+Use **Node.js 24.21.0** and **Bun 1.4.2**. The repository pins Node in `.nvmrc`, `.node-version` and `mise.toml`; use whichever version manager you already have, or install Node from [nodejs.org](https://nodejs.org/).
 
 ```sh
 node --version
-npm --version
+bun --version
 git clone https://github.com/glennreyes/generative-ui-mcp-workshop.git
 cd generative-ui-mcp-workshop
-npm ci
-npm run doctor
-npm run check
-npm run dev
+bun install --frozen-lockfile
+bun run doctor
+bun run check
+bun run dev
 ```
 
-If your Node installation bundles a different npm 11 release, `npm install --global npm@11.19.1` selects the tested package manager. Run `doctor` before starting the app; occupied ports are expected while it is already running.
+Install Bun from [bun.sh](https://bun.sh/docs/installation), or use `mise install` with the included `mise.toml` to select both tested versions. Bun installs dependencies and runs scripts; Node runs the MCP server and Vite+ CLI. No global Vite+ installation is required. Run `doctor` before starting the app; occupied ports are expected while it is already running.
 
 Open **[the local test host](http://localhost:8080/?tool=show_sessions&call=true)**. The page calls `show_sessions` and renders the agenda inside a sandbox.
 
@@ -34,7 +34,7 @@ Open **[the local test host](http://localhost:8080/?tool=show_sessions&call=true
 In another terminal, run:
 
 ```sh
-npm run smoke
+bun run smoke
 ```
 
 This checks real HTTP tool calls and the bundled UI resource. It complements the browser steps above; it does not claim to click the button for you.
@@ -44,10 +44,10 @@ This checks real HTTP tool calls and the bundled UI resource. It complements the
 First verify the finished demo above. Stop it with Ctrl+C. Then make an independent starter:
 
 ```sh
-npm run checkpoint -- 00-start ../agenda-start
+bun run checkpoint 00-start ../agenda-start
 cd ../agenda-start
-npm ci
-npm run dev
+bun install --frozen-lockfile
+bun run dev
 ```
 
 Continue with [Exercise 1](exercises/01-tool.md). The starter deliberately returns an empty result and has no linked UI yet. Its final-solution tests are acceptance targets, so they become green as you complete the exercises.
@@ -56,6 +56,6 @@ The checkpoint command refuses an existing destination and never replaces your c
 
 ## Offline and troubleshooting
 
-Install dependencies before travelling. After installation, the app uses local fixtures and bundled assets without a network connection. You can copy a prepared source directory and npm cache to a backup machine, but native dependencies must match its OS and CPU. A source ZIP alone does not contain npm packages.
+Install dependencies before travelling. After installation, the app uses local fixtures and bundled assets without a network connection. You can copy a prepared source directory and Bun cache to a backup machine, but native dependencies must match its OS and CPU. A source ZIP alone does not contain installed packages.
 
 See [troubleshooting](troubleshooting.md). Ask in [Discord](https://discord.gg/8p3uGHNMu), `#react-alicante-2026`, with your OS, Node version, command and error. Never post credentials.
