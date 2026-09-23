@@ -97,12 +97,18 @@ function Exercise({
 function AgendaExample({ print = false }: { print?: boolean }) {
   const [view, setView] = useState<"list" | "compare">("list");
   const reduced = useReducedMotion();
-  const result = showSessions({ topic: "react", startTime: "13:00", view });
+  const result = showSessions({
+    day: "2026-09-25",
+    topic: "react",
+    startTime: "11:30",
+    endTime: "13:00",
+    view,
+  });
   const selected = print ? "compare" : view;
   return (
     <div className="agenda-example">
       <div className="example-top">
-        <span>REACT / 13:00–18:00</span>
+        <span>FRI 25 / 11:30–13:00</span>
         <div className="flex gap-2">
           <Button
             variant={selected === "list" ? "default" : "outline"}
@@ -132,13 +138,14 @@ function AgendaExample({ print = false }: { print?: boolean }) {
             <h3>{session.title}</h3>
             <p>{session.description}</p>
             <span className="session-level">
-              Room {session.room} · {session.level}
+              {session.date} · {session.speaker}
             </span>
           </motion.article>
         ))}
       </div>
       <p className="example-disclosure">
-        Fictional workshop data · Local React illustration, no MCP call
+        React Alicante 2026 schedule snapshot · Local React illustration, no MCP
+        call
       </p>
     </div>
   );
@@ -207,7 +214,7 @@ export function SlideContent({
           </h1>
           <AgendaExample print={print} />
           <p className="slide-caption">
-            One tool. Twelve fictional sessions. Two useful views.
+            One tool. The real conference schedule. Two useful views.
           </p>
         </>
       );
@@ -249,8 +256,8 @@ export function SlideContent({
             <em>an allowed view.</em>
           </h1>
           <div className="intent">
-            <blockquote>“Show me React sessions this afternoon.”</blockquote>
-            <code>topic: "react" · startTime: "13:00" · view: "list"</code>
+            <blockquote>“Show me Friday’s React sessions.”</blockquote>
+            <code>day: "2026-09-25" · topic: "react" · view: "list"</code>
           </div>
           <Reveal at={1} step={step}>
             <div className="intent">
@@ -313,7 +320,7 @@ export function SlideContent({
             lines={[
               "show_sessions({",
               '  topic: "react",',
-              '  startTime: "13:00", endTime: "18:00",',
+              '  day: "2026-09-25", startTime: "11:30", endTime: "13:00",',
               '  view: "compare",',
               "});",
             ]}
@@ -331,7 +338,7 @@ export function SlideContent({
           </h1>
           <div className="numbered-lines">
             {[
-              "Filter by topic and the complete time window.",
+              "Filter by day, topic and the complete time window.",
               "Return typed data and useful fallback text.",
               "Try an empty result and an invalid input.",
             ].map((text, i) => (

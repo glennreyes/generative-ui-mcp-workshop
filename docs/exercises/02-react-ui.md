@@ -26,10 +26,16 @@ MCP tools return data. The UI resource and host bridge turn that data into an in
 ## Try it
 
 ```json
-{ "topic": "react", "startTime": "13:00", "view": "list" }
+{
+  "day": "2026-09-25",
+  "topic": "react",
+  "startTime": "11:30",
+  "endTime": "13:00",
+  "view": "list"
+}
 ```
 
-Expect three afternoon React sessions inside the sandbox. No network request to an external asset host should be needed.
+Expect three Friday React sessions inside the sandbox. No network request to an external asset host should be needed.
 
 ## Acceptance criteria
 

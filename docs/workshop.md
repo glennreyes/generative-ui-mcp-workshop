@@ -25,7 +25,7 @@ Bring a laptop, an editor and a modern browser. Complete [setup](setup.md) befor
 
 ## The project
 
-The Conference Agenda Assistant uses twelve fictional sessions stored locally. A `show_sessions` tool accepts a topic, time window and `view: "list" | "compare"`. React renders the selected presentation. A filter button calls the server again; an optional follow-up sends the visible choices to the host.
+The Conference Agenda Assistant uses 46 published workshops and talks stored locally. A `show_sessions` tool accepts a day, topic, time window and `view: "list" | "compare"`. React renders the selected presentation. A filter button calls the server again; an optional follow-up sends the visible choices to the host.
 
 “Generative UI” here means intent-driven selection of trusted React views and data. The model does not write or execute arbitrary UI code at runtime.
 

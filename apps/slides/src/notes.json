@@ -5,10 +5,10 @@
   },
   {
     "title": "The Conference Agenda Assistant",
-    "notes": "Show the completed demo live, then use this actual screenshot as the fallback. State that all sessions are fictional, not the React Alicante schedule. Call show_sessions with topic react, startTime 13:00 and view compare. Three records should appear."
+    "notes": "Show the completed demo live. The slide example is a local illustration, not an MCP call. The schedule snapshot is September 23; topics are editorial and lightning times represent the whole block. Call show_sessions with day 2026-09-25, topic react, startTime 11:30, endTime 13:00 and view compare. Expect Aurora Scharff, Mattia Manzati and Sara Vieira."
   },
   {
-    "title": "How we\u2019ll work",
+    "title": "How we’ll work",
     "notes": "The coding agent helps build the app. The conversational model later chooses tools in the finished app. These are different roles. Use checkpoints to recover without overwriting participant work. Ask attendees to predict one filter result now."
   },
   {
@@ -24,19 +24,19 @@
     "notes": "Open packages/agenda/src/schema.ts. Defaults live in one schema. Explain the complete-attendance time-window rule. content provides a readable text fallback; structuredContent supplies the typed result. Source: https://ts.sdk.modelcontextprotocol.io/v2/"
   },
   {
-    "title": "Exercise 1 \u00b7 The session tool",
-    "notes": "Open docs/exercises/01-tool.md. Ask whether the 15:00\u201315:45 session belongs in a window ending at 15:00. It does not. Expected React 13:00\u201315:00 result: react-patterns and react-performance. Read the diff and show the actual tool result before moving on. Break follows this block."
+    "title": "Exercise 1 · The session tool",
+    "notes": "Open docs/exercises/01-tool.md. Ask whether Sara’s 12:30–13:00 session fits a window ending at 12:30. It does not. Friday React 11:30–12:30 returns Aurora and Mattia. Review the diff and actual result. Break follows."
   },
   {
-    "title": "Exercise 2 \u00b7 The React resource",
+    "title": "Exercise 2 · The React resource",
     "notes": "Open docs/exercises/02-react-ui.md and apps/server/src/server.ts. Register the single-file resource using RESOURCE_MIME_TYPE. Explain that the UI handler is installed before connect. Keep content text fallback and CSP metadata. Source: https://apps.extensions.modelcontextprotocol.io/api/documents/migrate-to-v2.html"
   },
   {
-    "title": "Exercise 3 \u00b7 Trusted views",
-    "notes": "Open docs/exercises/03-views.md. Add the comparison Table using the existing shadcn components. Call from the host with view list, then compare. UI buttons are completed in exercise 4. The screenshot shows the actual list rendering. Break follows this block."
+    "title": "Exercise 3 · Trusted views",
+    "notes": "Open docs/exercises/03-views.md. Add the comparison Table using the existing shadcn components. Call from the host with view list, then compare. UI buttons are completed in exercise 4. The slide illustration uses the same three Friday sessions. Break follows this block."
   },
   {
-    "title": "Exercise 4 \u00b7 UI to server",
+    "title": "Exercise 4 · UI to server",
     "notes": "Open docs/exercises/04-interaction.md. The snippet shows the data path; the implementation also checks isError and supplies a timeout. A UI-initiated result returns to the caller; do not wait for a new ontoolresult event. Review pending, error and stale-result handling in app.tsx. Source: MCP Apps SDK app.callServerTool documentation."
   },
   {
@@ -45,7 +45,7 @@
   },
   {
     "title": "Loading, empty results and errors",
-    "notes": "Demonstrate an empty 17:00\u201318:00 window, then a reversed window and recovery. Do not replace working data with a blank screen while loading. Untrusted strings render as text. The sandbox and typed contract have different jobs. A read-only example avoids real booking side effects."
+    "notes": "Demonstrate an empty 19:00–20:00 window, then a reversed window and recovery. Do not replace working data with a blank screen while loading. Untrusted strings render as text. The sandbox and typed contract have different jobs. A read-only example avoids real booking side effects."
   },
   {
     "title": "Pair challenge",

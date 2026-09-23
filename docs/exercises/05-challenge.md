@@ -6,15 +6,15 @@ Choose one extension with a partner. Predict the contract change before asking a
 
 ## Option A: room filter
 
-Add `room: "all" | "A" | "B"` to the input schema, server filter and form. Preserve room when switching views. Add a test that combines room, topic and time.
+Add `room: "all" | "1.2" | "1.3" | "1.4" | "2.2" | "2.3"` to the input schema, server filter and form. Preserve room when switching views. Add a test that combines room, topic and time.
 
-Acceptance: filtering to Room B excludes every Room A session in both views; text fallback matches the visible records.
+Acceptance: filtering to Thursday Room 1.2 returns Glenn’s and Kathleen’s workshops and excludes all other rooms in both views; text fallback matches the visible records.
 
 Hint 1: the UI should submit a new argument, not filter a second copy of the data. Hint 2: update the returned `filters` contract so React remembers the server’s normalized values.
 
 ## Option B: timeline
 
-Add a `timeline` view to the schema and a trusted React timeline component. Keep the existing list and comparison views. Explain what happens when two fictional sessions run simultaneously.
+Add a `timeline` view to the schema and a trusted React timeline component. Keep the existing list and comparison views. Explain what happens when two scheduled sessions run simultaneously.
 
 Acceptance: the same filtered session IDs appear in every view and the timeline has a readable keyboard/screen-reader order.
 

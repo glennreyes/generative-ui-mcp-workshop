@@ -27,8 +27,8 @@ export function SessionResults({ result }: { result: SessionResult }) {
             <TableHead>Session</TableHead>
             <TableHead>Time</TableHead>
             <TableHead>Room</TableHead>
-            <TableHead>Level</TableHead>
-            <TableHead>What you’ll learn</TableHead>
+            <TableHead>Speaker</TableHead>
+            <TableHead>Schedule notes</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -41,10 +41,13 @@ export function SessionResults({ result }: { result: SessionResult }) {
                 </span>
               </TableCell>
               <TableCell>
+                {session.date}
+                <br />
                 {session.startTime}–{session.endTime}
+                {session.timing === "block" ? " (block)" : ""}
               </TableCell>
-              <TableCell>{session.room}</TableCell>
-              <TableCell>{session.level}</TableCell>
+              <TableCell>{session.room ?? "Not published"}</TableCell>
+              <TableCell>{session.speaker}</TableCell>
               <TableCell>{session.description}</TableCell>
             </TableRow>
           ))}
@@ -60,6 +63,9 @@ export function SessionResults({ result }: { result: SessionResult }) {
             <p className="text-xs text-muted-foreground">{session.endTime}</p>
           </div>
           <div className="min-w-0 flex-1">
+            <p className="text-xs text-muted-foreground">
+              {session.date} · {session.kind}
+            </p>
             <h2 className="font-semibold">{session.title}</h2>
             <p className="mt-1 text-sm text-muted-foreground">
               {session.description}
@@ -67,7 +73,7 @@ export function SessionResults({ result }: { result: SessionResult }) {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <Badge variant="secondary">{session.topic}</Badge>
               <span className="text-xs text-muted-foreground">
-                Room {session.room} · {session.level}
+                Room {session.room ?? "Not published"} · {session.speaker}
               </span>
             </div>
           </div>

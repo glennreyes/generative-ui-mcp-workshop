@@ -45,11 +45,16 @@ test("UI request crosses the SDK AppBridge and returns real server results", asy
     await app.connect(appTransport);
     const list = await requestSessions(
       app,
-      sessionInputSchema.parse({ topic: "react", startTime: "13:00" }),
+      sessionInputSchema.parse({
+        day: "2026-09-25",
+        topic: "react",
+        startTime: "11:30",
+        endTime: "13:00",
+      }),
     );
     assert.deepEqual(
       list.sessions.map((s) => s.id),
-      ["react-patterns", "react-performance", "react-design"],
+      ["25-aurora-scharff", "25-mattia-manzati", "25-sara-vieira"],
     );
     const comparison = await requestSessions(app, {
       ...list.filters,
@@ -59,7 +64,8 @@ test("UI request crosses the SDK AppBridge and returns real server results", asy
     assert.deepEqual(comparison.sessions, list.sessions);
     const empty = await requestSessions(app, {
       ...list.filters,
-      startTime: "17:00",
+      startTime: "19:00",
+      endTime: "20:00",
     });
     assert.equal(empty.sessions.length, 0);
     await app.updateModelContext({
@@ -70,7 +76,7 @@ test("UI request crosses the SDK AppBridge and returns real server results", asy
       content: [
         {
           type: "text",
-          text: "Help me choose between react-patterns and react-performance.",
+          text: "Help me choose between 25-aurora-scharff and 25-mattia-manzati.",
         },
       ],
     });

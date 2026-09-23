@@ -8,6 +8,6 @@ export function showSessions(rawInput: unknown): SessionResult {
     filters,
     sessions: [],
     summary: "Exercise 1: implement the session filter.",
-    source: "Fictional workshop data",
+    source: "React Alicante 2026 schedule snapshot · 2026-09-23",
   };
 }

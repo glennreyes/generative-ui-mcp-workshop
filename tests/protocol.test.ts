@@ -39,7 +39,13 @@ for (const mode of ["auto", "legacy"] as const) {
       assert(tool.outputSchema);
       const result = await client.callTool({
         name: "show_sessions",
-        arguments: { topic: "react", startTime: "13:00", view: "compare" },
+        arguments: {
+          day: "2026-09-25",
+          topic: "react",
+          startTime: "11:30",
+          endTime: "13:00",
+          view: "compare",
+        },
       });
       assert.equal(result.isError, undefined);
       const parsed = sessionResultSchema.parse(result.structuredContent);
@@ -49,12 +55,12 @@ for (const mode of ["auto", "legacy"] as const) {
         .filter((c) => c.type === "text")
         .map((c) => c.text)
         .join("\n");
-      assert.match(fallback, /Fictional workshop data/);
-      assert.match(fallback, /Room A/);
-      assert.match(fallback, /React patterns/);
+      assert.match(fallback, /React Alicante 2026 schedule snapshot/);
+      assert.match(fallback, /Room not published/);
+      assert.match(fallback, /What RSCs/);
       const empty = await client.callTool({
         name: "show_sessions",
-        arguments: { startTime: "17:00" },
+        arguments: { startTime: "19:00", endTime: "20:00" },
       });
       assert.match(JSON.stringify(empty.content), /wider time window/);
       const invalid = await client.callTool({

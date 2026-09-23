@@ -22,13 +22,13 @@ Personal rehearsal, organizer communication and conversational-account testing r
 ## Five-minute opening demo
 
 1. Open the completed local host with `show_sessions`.
-2. Show all sessions, then React after 13:00. Point out the fictional-data label.
+2. Show all sessions, then Friday React sessions from 11:30 to 13:00. Point out the schedule source and snapshot date.
 3. Switch to Compare. Ask what changed in the data versus the presentation.
 4. Click Update sessions with another topic. Show loading and updated records.
 5. Click Help me choose. In this host the message is recorded; in your prepared conversational host it can continue the conversation.
 6. Expand Tool Input and Tool Result. Find `view`, `structuredContent` and the resource link in the code.
 
-For the conversational recording, use: “Show me the React sessions I can attend this afternoon”, then “Compare these sessions so I can choose one.” Verify the actual tool arguments rather than assuming a model follows the prompt exactly.
+For the conversational recording, use: “Show me the React sessions on Friday, September 25, between 11:30 and 13:00”, then “Compare these sessions so I can choose one.” Verify the actual tool arguments rather than assuming a model follows the prompt exactly.
 
 ## Session cues
 

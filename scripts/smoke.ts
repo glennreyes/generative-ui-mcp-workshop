@@ -26,7 +26,13 @@ try {
   assert(tools.some((t) => t.name === "show_sessions"));
   const result = await client.callTool({
     name: "show_sessions",
-    arguments: { topic: "react", startTime: "13:00", view: "compare" },
+    arguments: {
+      day: "2026-09-25",
+      topic: "react",
+      startTime: "11:30",
+      endTime: "13:00",
+      view: "compare",
+    },
   });
   const data = sessionResultSchema.parse(result.structuredContent);
   assert.equal(data.sessions.length, 3);
@@ -41,7 +47,7 @@ try {
     `PASS: ${stdio ? "stdio" : "HTTP"} MCP (${client.getProtocolEra()}), filtered tool result, linked single-file React resource.`,
   );
   console.log(
-    "Browser check: open http://localhost:8080/?tool=show_sessions&call=true, select React, click Update sessions, then Compare.",
+    "Browser check: open http://localhost:8080/?tool=show_sessions&call=true, select Friday, React, 11:30–13:00, click Update sessions, then Compare.",
   );
 } finally {
   await client.close();

@@ -16,7 +16,7 @@ export function createServer() {
     {
       title: "Explore conference sessions",
       description:
-        "Browse fictional conference sessions. Filter by topic and time window. Choose list to explore or compare to help decide between sessions. No bookings or real conference data.",
+        "Browse the React Alicante 2026 schedule snapshot. Filter by day, editorial topic tag and time window. Choose list to explore or compare to help decide between sessions. Times are Europe/Madrid. Lightning times represent the whole block. No bookings.",
       inputSchema: sessionInputSchema,
       outputSchema: sessionResultSchema,
       annotations: {
@@ -30,7 +30,7 @@ export function createServer() {
       const result = showSessions(input);
       const lines = result.sessions.map(
         (s) =>
-          `${s.startTime}-${s.endTime} | ${s.title} | Room ${s.room} | ${s.level} | ${s.description}`,
+          `${s.date} ${s.startTime}-${s.endTime} | ${s.title} | ${s.speaker} | Room ${s.room ?? "not published"} | ${s.kind} | ${s.description}`,
       );
       return {
         structuredContent: result,

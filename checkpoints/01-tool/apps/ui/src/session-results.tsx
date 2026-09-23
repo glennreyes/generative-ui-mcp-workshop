@@ -21,6 +21,9 @@ export function SessionResults({ result }: { result: SessionResult }) {
             <p className="text-xs text-muted-foreground">{session.endTime}</p>
           </div>
           <div className="min-w-0 flex-1">
+            <p className="text-xs text-muted-foreground">
+              {session.date} · {session.kind}
+            </p>
             <h2 className="font-semibold">{session.title}</h2>
             <p className="mt-1 text-sm text-muted-foreground">
               {session.description}
@@ -28,7 +31,7 @@ export function SessionResults({ result }: { result: SessionResult }) {
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <Badge variant="secondary">{session.topic}</Badge>
               <span className="text-xs text-muted-foreground">
-                Room {session.room} · {session.level}
+                Room {session.room ?? "Not published"} · {session.speaker}
               </span>
             </div>
           </div>

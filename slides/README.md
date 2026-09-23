@@ -30,7 +30,7 @@ Open the synchronized presenter window from the notes panel and move it to your 
 - The MCP diagram reveals model, host, server, React and the UI-to-tool return path.
 - Code examples progressively emphasize the contract.
 - Exercise instructions reveal one step at a time.
-- List/Compare buttons rearrange the same three fictional sessions with Motion layout animation.
+- List/Compare buttons rearrange the same three scheduled sessions with Motion layout animation.
 
 The embedded example is a **local React illustration, not an MCP call**. Use the [real local host](http://localhost:8080/?tool=show_sessions&call=true) for the protocol demonstration.
 
@@ -52,6 +52,6 @@ bun run slides:build
 
 Open the print view using the toolbar, then choose **Print / Save PDF**. Use landscape, no margins, and background graphics. Every slide renders its completed state; the interactive example prints as a comparison. Browser printing produces a static copy of the current React design.
 
-The [PDF](exports/workshop.pdf) and [PowerPoint](exports/workshop.pptx) are retained static backups from the September 17 edition. They cover the same teaching sequence but do not include the new React styling or animations. [The original Markdown](slides.md) is an archive of that edition, not the current renderer’s source.
+The [PDF](exports/workshop.pdf) and [PowerPoint](exports/workshop.pptx) are retained static backups from the September 17 edition. They cover the same teaching sequence but use the former fictional dataset and do not include the new React styling or animations. Use the current React deck for the real schedule. [The original Markdown](slides.md) is an archive of that edition, not the current renderer’s source.
 
 Follow the [instructor runbook](../docs/instructor.md) for the teaching sequence and rehearsal.

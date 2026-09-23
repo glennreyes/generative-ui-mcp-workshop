@@ -25,9 +25,9 @@ Install Bun from [bun.sh](https://bun.sh/docs/installation), or use `mise instal
 
 Open **[the local test host](http://localhost:8080/?tool=show_sessions&call=true)**. The page calls `show_sessions` and renders the agenda inside a sandbox.
 
-1. Find the list of twelve fictional sessions.
-2. Choose **React**, set **From** to **13:00**, and click **Update sessions**.
-3. Expect three sessions: React patterns, A faster React screen, A small React design system.
+1. Find the list of 46 published workshops and talks.
+2. Choose **Friday (September 25)** and **React**, set **From** to **11:30** and **Until** to **13:00**, and click **Update sessions**.
+3. Expect three sessions: What RSCs can do in Next.js today; Your simple frontend shares backend challenges; Breakout Session: Building 3D Games in React.
 4. Click **Compare**. Expect the same three records in a table.
 5. Click **Help me choose**. The host’s **Messages** panel records the follow-up. It does not generate an AI reply.
 

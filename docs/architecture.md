@@ -21,7 +21,7 @@ The local test host replaces the first two steps with explicit tool selection an
 | Responsibility                      | Source                                 |
 | ----------------------------------- | -------------------------------------- |
 | Input/output schemas                | `packages/agenda/src/schema.ts`        |
-| Twelve fictional sessions           | `packages/agenda/src/sessions.ts`      |
+| 46 published workshops and talks    | `packages/agenda/src/sessions.ts`      |
 | Filtering and view model            | `packages/agenda/src/show-sessions.ts` |
 | Tool, text fallback and UI resource | `apps/server/src/server.ts`            |
 | Streamable HTTP endpoint            | `apps/server/src/http.ts`              |

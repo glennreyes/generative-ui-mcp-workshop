@@ -8,7 +8,7 @@
 | Host cannot connect                    | Keep `bun run dev` running. Open `http://localhost:3001/health`, then reload the host.                                                  |
 | Tool works, no UI                      | At checkpoints 00 and 01 this is expected. Otherwise inspect tool `_meta.ui.resourceUri`, resource MIME type and `bun run build`.       |
 | Old UI after an edit                   | Wait for the UI watcher to finish, then reload the host. Existing iframe documents are snapshots; they do not hot-reload.               |
-| Host edits not reflected               | `bun run build -w @workshop/host`, then reload. The host is supplied infrastructure and is not watched by default.                      |
+| Host edits not reflected               | `bun run --cwd apps/host build`, then reload. The host is supplied infrastructure and is not watched by default.                        |
 | Empty result                           | Check topic and time filters. A session must fit entirely inside the selected time window.                                              |
 | Invalid time                           | Use HH:mm, from 00:00 to 23:59, with end after start. Overnight windows are not supported.                                              |
 | Unexpected result schema               | Inspect `structuredContent` in Tool Result and compare it with `sessionResultSchema`. Do not cast away the error.                       |

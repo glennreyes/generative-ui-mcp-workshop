@@ -16,6 +16,7 @@ import {
   sessionInputSchema,
   sessionResultSchema,
   topicSchema,
+  daySchema,
   type SessionInput,
   type SessionResult,
 } from "@workshop/agenda";
@@ -142,7 +143,7 @@ export function AgendaApp() {
           content: [
             {
               type: "text",
-              text: `Help me choose between these fictional sessions: ${result.sessions.map((s) => `${s.id}: ${s.title}`).join("; ")}. My filters are ${JSON.stringify(result.filters)}. Explain the tradeoffs.`,
+              text: `Help me choose between these React Alicante sessions: ${result.sessions.map((s) => `${s.id}: ${s.title}`).join("; ")}. My filters are ${JSON.stringify(result.filters)}. Explain the tradeoffs.`,
             },
           ],
         },
@@ -176,7 +177,7 @@ export function AgendaApp() {
             Explore ideas. Compare options. Make room for something new.
           </p>
         </div>
-        <Badge variant="outline">Sample agenda</Badge>
+        <Badge variant="outline">React Alicante 2026</Badge>
       </header>
       <form
         onSubmit={submit}
@@ -184,7 +185,24 @@ export function AgendaApp() {
         aria-label="Session filters"
       >
         <div className="grid gap-2">
-          <Label htmlFor="topic">Topic</Label>
+          <Label htmlFor="day">Day</Label>
+          <select
+            id="day"
+            value={filters.day}
+            onChange={(e) =>
+              setFilters({ ...filters, day: daySchema.parse(e.target.value) })
+            }
+            disabled={!connected || pending}
+            className="h-9 rounded-md border border-input bg-background px-3 text-sm"
+          >
+            <option value="all">All days</option>
+            <option value="2026-09-24">Thu 24 · Workshops</option>
+            <option value="2026-09-25">Fri 25 · Conference day 1</option>
+            <option value="2026-09-26">Sat 26 · Conference day 2</option>
+          </select>
+        </div>
+        <div className="grid gap-2">
+          <Label htmlFor="topic">Topic (editorial)</Label>
           <select
             id="topic"
             value={filters.topic}
@@ -291,7 +309,16 @@ export function AgendaApp() {
       </section>
       <footer className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t pt-5">
         <p className="text-xs text-muted-foreground">
-          Fictional workshop data. This is not the React Alicante schedule.
+          Schedule snapshot: September 23, 2026 · Europe/Madrid. Topic tags are
+          editorial. Lightning times cover the whole block.{" "}
+          <a
+            href="https://reactalicante.es/#schedule"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            Check the official schedule for changes.
+          </a>
         </p>
         {app?.getHostCapabilities()?.message && (
           <Button

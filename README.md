@@ -6,11 +6,11 @@ Build a React interface that lives inside a conversation. Use MCP tools to retur
 
 [Setup](docs/setup.md) · [Exercises](docs/exercises/README.md) · [Slides](slides/README.md) · [Discord](https://discord.gg/8p3uGHNMu) · [Workshop description](docs/workshop.md)
 
-![The Conference Agenda Assistant showing a comparison of fictional React sessions](docs/images/compare.png)
+The app displays the real schedule snapshot with day, speaker, room and published time. See [data provenance](docs/agenda-data.md).
 
 ## What you’ll build
 
-A **Conference Agenda Assistant** with twelve fictional sessions, a `show_sessions` tool, list and comparison views, a filter that makes a real MCP call, and an optional conversational follow-up.
+A **Conference Agenda Assistant** with 46 published workshops and talks, a `show_sessions` tool, list and comparison views, a filter that makes a real MCP call, and an optional conversational follow-up.
 
 The model interprets intent and chooses validated tool arguments. React renders trusted components you designed. There is no runtime execution of model-generated JSX or HTML.
 
@@ -29,7 +29,7 @@ bun run check
 bun run dev
 ```
 
-Open **[localhost:8080](http://localhost:8080/?tool=show_sessions&call=true)**. Select **React**, set **From** to **13:00**, and click **Update sessions**. Expect three afternoon sessions. Switch to **Compare** to see the same records as a table.
+Open **[localhost:8080](http://localhost:8080/?tool=show_sessions&call=true)**. Select **Friday (September 25)** and **React**, set **From** to **11:30** and **Until** to **13:00**, and click **Update sessions**. Expect three Friday sessions. Switch to **Compare** to see the same records as a table.
 
 The finished demo is the default. Start learning from a separate copy:
 
@@ -66,7 +66,7 @@ A small **Bun workspaces** monorepo keeps the embedded app, server, test host an
 | Design-system checks | `@shadcn/lint` with ESLint 10                                                    |
 | MCP                  | Official TypeScript SDK 2.0 and MCP Apps 2.0                                     |
 | Transport            | Streamable HTTP and stdio; current protocol negotiation with compatibility tests |
-| Data                 | Zod 4 schemas and twelve local fictional sessions                                |
+| Data                 | Zod 4 schemas and 46 locally bundled workshops and talks                         |
 | Local host           | Adapted, pinned official MCP Apps basic-host                                     |
 | Slides               | React + Motion, standalone HTML, print view and offline fallback                 |
 
@@ -119,7 +119,7 @@ The host uses port **8080**, its separate sandbox **8081**, and the MCP server *
 - [Build with Glenn on Discord](https://discord.gg/8p3uGHNMu), `#react-alicante-2026`
 - [Download the source](https://github.com/glennreyes/generative-ui-mcp-workshop/archive/refs/heads/main.zip) if Git is unavailable. Install dependencies before going offline.
 
-The sample sessions are not the real conference schedule. For event logistics, use [reactalicante.es](https://reactalicante.es).
+The bundled schedule was captured on September 23, 2026. Topic tags are editorial; lightning talks use the published block time. See [data provenance](docs/agenda-data.md). For event logistics, use [reactalicante.es](https://reactalicante.es).
 
 ## License
 

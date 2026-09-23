@@ -17,14 +17,20 @@ The model chooses a view argument. Trusted React code decides what that view loo
 
 1. Inspect `SessionResult` and the two supported view values.
 2. Add a comparison branch using the provided shadcn Table components.
-3. Show title, time, room, level and description with real table headings.
+3. Show title, date, time, room, speaker and schedule notes with real table headings.
 4. Keep the existing empty-state message for both views.
 5. Call the tool twice from the host, changing only `view`. The app’s buttons become functional in exercise 4.
 
 ## Try it
 
 ```json
-{ "topic": "react", "startTime": "13:00", "view": "compare" }
+{
+  "day": "2026-09-25",
+  "topic": "react",
+  "startTime": "11:30",
+  "endTime": "13:00",
+  "view": "compare"
+}
 ```
 
 Expect a table containing the same three records as the list call. In the local host you select the argument; the instructor can demonstrate a model choosing it from a prompt.

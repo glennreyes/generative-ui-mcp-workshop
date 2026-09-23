@@ -18,15 +18,15 @@ A button inside an MCP App talks through the host bridge. It does not need direc
 1. Implement `requestSessions` with `app.callServerTool({ name: "show_sessions", arguments: input })`.
 2. Add a timeout, check `isError` and parse `structuredContent` with the result schema.
 3. Read the supplied `refresh` controller: it tracks pending state, disables duplicate submissions and ignores stale results.
-4. Filter to React after 13:00, then switch to Compare using the app’s buttons.
-5. Try a reversed window and an empty 17:00–18:00 window.
+4. Filter to Friday React sessions from 11:30 to 13:00, then switch to Compare using the app’s buttons.
+5. Try a reversed window and an empty 19:00–20:00 window.
 6. Click Help me choose and inspect the host’s Messages panel. Explain why the local host does not reply like a model.
 
 ## Try it
 
-Choose React, From 13:00, Until 18:00. Click Update sessions. Expect three sessions. Click Compare. Expect the same three rows.
+Choose Friday (September 25), React, From 11:30, Until 13:00. Click Update sessions. Expect three sessions. Click Compare. Expect the same three rows.
 
-Then use From 17:00 and Until 18:00. Expect the explicit empty state. Restore 13:00 and retry.
+Then use From 19:00 and Until 20:00. Expect the explicit empty state. Restore 11:30–13:00 and retry.
 
 ## Acceptance criteria
 

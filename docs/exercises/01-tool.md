@@ -4,7 +4,7 @@
 
 ## Outcome
 
-Return only sessions matching the requested topic and time window, with structured data and a useful text fallback.
+Return only sessions matching the requested day, topic and time window, with structured data and a useful text fallback.
 
 The tool contract is the shared boundary between the model, server and interface.
 
@@ -17,22 +17,28 @@ The tool contract is the shared boundary between the model, server and interface
 ## Build it
 
 1. Inspect the fixture and the existing Zod input/output schemas.
-2. Implement `showSessions` using the topic and time window. A session must fit entirely inside the window.
-3. Return the requested view, normalized filters, matching sessions, summary and fictional-data label.
+2. Implement `showSessions` using the day, topic and time window. A session must fit entirely inside the window.
+3. Return the requested view, normalized filters, matching sessions, summary, schedule source and snapshot date.
 4. Inspect how `show_sessions` wraps that result in both `structuredContent` and `content`.
 5. Run the tests and call the tool in the host. There is no embedded UI at this checkpoint.
 
 ## Try it
 
 ```json
-{ "topic": "react", "startTime": "13:00", "endTime": "15:00", "view": "list" }
+{
+  "day": "2026-09-25",
+  "topic": "react",
+  "startTime": "11:30",
+  "endTime": "12:30",
+  "view": "list"
+}
 ```
 
-Expect two sessions: `react-patterns` and `react-performance`. Both end by 15:00. The 15:00 session ends at 15:45, so it is excluded.
+Expect two sessions: `25-aurora-scharff` and `25-mattia-manzati`. Both end by 12:30. Sara Vieira’s 12:30–13:00 session is excluded because it ends after the window.
 
 ## Acceptance criteria
 
-- [ ] Empty input returns twelve sessions.
+- [ ] Empty input returns 46 sessions.
 - [ ] The example above returns exactly two sessions.
 - [ ] A reversed window or unsupported topic is rejected.
 - [ ] A valid empty result explains how to broaden the search.
@@ -52,7 +58,7 @@ Parse input before filtering. Default values should come from the schema, not a 
 <details>
 <summary>Hint 2</summary>
 
-HH:mm strings compare in time order because the schema requires zero-padded 24-hour times. Match topic AND start >= startTime AND end <= endTime.
+HH:mm strings compare in time order because the schema requires zero-padded 24-hour times. Match day AND topic AND start >= startTime AND end <= endTime. The all value bypasses its filter.
 
 </details>
 
